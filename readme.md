@@ -1,18 +1,44 @@
-# Introduction
+# Xamarin UITest
 
-This is a sample project for Prism with Xamarin.Forms using DryIoC.
+This is a sample project for Xamarin.Forms UITests.
 
-Prism is a framework for building loosely coupled, maintainable, and testable XAML applications in WPF, Windows 10 UWP, and Xamarin Forms. Separate releases are available for each platform and those will be developed on independent timelines. Prism provides an implementation of a collection of design patterns that are helpful in writing well-structured and maintainable XAML applications, including MVVM, dependency injection, commands, EventAggregator, and others. Prism's core functionality is a shared code base in a Portable Class Library targeting these platforms.
+## NuGet Requirements
+* NUnit (v3)
+* NUnit3TestAdapters
+* Xamarin.UITest
 
-## Semi-Requirements
-The project works best if you include the [Prism Template Pack](https://marketplace.visualstudio.com/items?itemName=BrianLagunas.PrismTemplatePack). This allows the system to quickly type in code for you and _even creates a ViewModel class when you create a new page_!
+## Step 1 - Setup Environment
+1. Set your Environment Variable for ANDROID_HOME
+    * ANDROID_HOME="C:\Program Files (x86)\Android\android-sdk"
+    * JAVA_HOME="C:\Program Files\Android\jdk\microsoft_dist_openjdk_1.8.0.25"
+2. Create a main Xamarin.Forms project
+3. Create your UTests project
+    * Include the required NuGet packages above!
+4. Create your first test
 
-# Resources
-* [Prism Library](https://prismlibrary.github.io/)
-* [Prism Template Pack](https://marketplace.visualstudio.com/items?itemName=BrianLagunas.PrismTemplatePack)
-* [Prism on GitHub](https://github.com/PrismLibrary/Prism)
+## Step 2 - Creating a Test
+
+
+# Pain Points
+* ANDROID_HOME
+* JAVA_HOME
+* ``The running adb server is incompatible with the Android SDK version in use by UITest``
+```
+Message: System.Exception : The running adb server is incompatible with the Android SDK version in use by UITest: 
+    C:\Program Files (x86)\Android\android-sdk
+
+You probably have multiple installations of the Android SDK and should update them or ensure that your IDE, simulator and shell all use the same instance.  The ANDROID_HOME environment variable can effect this.
+```
+
+# Further Learning
+## Resources
+* [Working with Xamarin.UITest](https://docs.microsoft.com/en-us/appcenter/test-cloud/uitest/working-with)
+* https://theconfuzedsourcecode.wordpress.com/2018/10/28/getting-your-xamarin-uitests-to-actually-work-not-thanks-to-xamarin-docs/
 
 ### Learn
-* [Prism for Xamarin.Forms - Create your first application](https://www.youtube.com/watch?v=81Q2fxFWIqA) - Created 2018-12-04
-* [The Xamarin Show | Episode 10: Prism for Xamarin.Forms with Brian Lagunas](https://www.youtube.com/watch?v=mb3_vhYw1mA) - Created 2018-01-04 _Prism v6_
-* [Xamarin Forms with Prism — Getting Started — Part 1](https://medium.com/tutorialsxl/xamarin-forms-with-prism-getting-started-part-1-14832d7cf5fa) - Created 2018-03-23
+* [Using UITest](https://developer.xamarin.com/samples/xamarin-forms/UsingUITest/)
+* Samples
+    * https://medium.com/@frankiefoo/xamarin-forms-how-to-perform-automated-ui-test-254a01c87648
+        * [Sample 1](https://github.com/xyfoo/learn-xamarin-ui-test/blob/master/XamarinFormsHelloWorld.UITest/Tests.cs)
+    * https://github.com/brminnick/UITestSampleApp
+    * https://theconfuzedsourcecode.wordpress.com/2018/10/28/getting-your-xamarin-uitests-to-actually-work-not-thanks-to-xamarin-docs/

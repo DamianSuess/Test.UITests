@@ -10,10 +10,12 @@ namespace Test.UITests.UITestBench
       {
         return ConfigureApp
           .Android
+          // Cannot specify both InstalledApp/ApkFile. Choose one
           .InstalledApp("com.companyname.Test.UITests")
-          // .ApkFile("C:\work\labs\Test.UITests\.apk");
+          //.ApkFile(@"C:\work\labs\Test.UITests\Test.UITests\Test.UITests.Android\bin\Debug\com.companyname.Test.UITests.apk")
+
           .EnableLocalScreenshots()
-          // .DeviceSerial("emulator-5554") // To run specific device
+          .DeviceSerial("emulator-5554") // To run specific device
           .StartApp();
       }
 
