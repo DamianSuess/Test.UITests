@@ -28,32 +28,75 @@ namespace Test.UITests.UITestBench
     [Test]
     public void ReadEvailPrintLoopTest()
     {
+      // _app.Repl();
+
       // https://docs.microsoft.com/en-us/appcenter/test-cloud/uitest/working-with-repl?tabs=vswin
-      _app.Repl();
+      // Usage:
+      //  * tree    - Prints layout from the screen 
     }
 
     [Test]
-    public void WelcomeTextIsDisplayed()
+    public void WelcomeTextIsDisplayedTest()
     {
+      // Arrange
+      // Act
       AppResult[] results = _app.WaitForElement(c => c.Marked("Welcome to Xamarin.Forms!"));
-      _app.Screenshot("Welcome screen.");
+      // SaveScreenshot();
 
+      // Assert
       Assert.IsTrue(results.Any());
     }
 
     [Test]
-    public void InputAndClickTest()
+    public void CanTakeAndSaveScreenShotTest()
     {
+      // Act
+      // _app.Screenshot("Generic screen shot");
+    }
+
+
+    [Test]
+    public void CanInputUserAndPasswordTest()
+    {
+      // Arrange
+      var pageTitle = "Welcome to Xamarin.Forms!";
+
+      // Act
+      AppResult[] results = _app.WaitForElement(c => c.Marked(pageTitle));
       _app.Tap(x => x.Marked("UserNameEntry"));
 
       _app.EnterText(x => x.Marked("UserNameEntry"), "TestUser");
+      _app.PressEnter();
+
+      // Must DismissKeyboard() or PressEnter(), otherwise it wont input text
       _app.EnterText(x => x.Marked("PasswordEntry"), "testing");
+      _app.DismissKeyboard();
 
       _app.Tap(x => x.Marked("LoginButton"));
 
-      _app.Screenshot("Tapped login");
-
       // SaveScreenshot();
+
+      // Assert
+      Assert.IsTrue(results.Any());
+    }
+
+    [Test]
+    public void CanRetypeUserNameTest()
+    {
+      // Arrange
+      var badUser = "BadUserName";
+      var goodUser = "MyUser";
+
+      // Act
+      _app.Tap(e => e.Marked("UserNameEntry"));
+      _app.EnterText(badUser);
+      _app.ClearText();
+
+      _app.EnterText(goodUser);
+      AppResult[] results = _app.WaitForElement(c => c.Marked(goodUser));
+
+      // Assert
+      Assert.IsTrue(results.Any());
     }
 
     private void SaveScreenshot(

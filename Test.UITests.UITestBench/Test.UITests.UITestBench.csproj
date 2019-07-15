@@ -39,7 +39,10 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SimpleTests.cs" />
+    <Compile Include="Helpers\UiHelpers.cs" />
+    <Compile Include="Tests\BaseUiTest.cs" />
+    <Compile Include="Tests\ReplTests.cs" />
+    <Compile Include="Tests\SimpleTests.cs" />
     <Compile Include="AppInitializer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -6,20 +6,32 @@ namespace Test.UITests.UITestBench
   {
     public static IApp StartApp(Platform platform)
     {
-      if (platform == Platform.Android)
+      switch (platform)
       {
-        return ConfigureApp
-          .Android
-          // Cannot specify both InstalledApp/ApkFile. Choose one
-          .InstalledApp("com.companyname.Test.UITests")
-          //.ApkFile(@"C:\work\labs\Test.UITests\Test.UITests\Test.UITests.Android\bin\Debug\com.companyname.Test.UITests.apk")
+        case Platform.Android:
+          return ConfigureApp
+            .Android
 
-          .EnableLocalScreenshots()
-          .DeviceSerial("emulator-5554") // To run specific device
-          .StartApp();
+            // Which app is this test for
+            // Cannot specify both InstalledApp/ApkFile. Choose one
+            .InstalledApp("com.companyname.Test.UITests")
+            //.ApkFile(@"C:\work\labs\Test.UITests\Test.UITests\Test.UITests.Android\bin\Debug\com.companyname.Test.UITests.apk")
+
+            .EnableLocalScreenshots()
+
+            // Use to specify our local emulator
+            // Comment out to pick actively running emulator
+            // .DeviceSerial("emulator-5554") // To run specific device
+
+            // Start app and clear AppData
+            .StartApp(Xamarin.UITest.Configuration.AppDataMode.Clear);
+
+        case Platform.iOS:
+          return ConfigureApp.iOS.StartApp();
+
+        default:
+          throw new System.NotSupportedException();
       }
-
-      return ConfigureApp.iOS.StartApp();
     }
   }
 }

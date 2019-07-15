@@ -17,17 +17,28 @@ This is a sample project for Xamarin.Forms UITests.
 4. Create your first test
 
 ## Step 2 - Creating a Test
+1. Create your ``AppInitializer.cs``
+2. Create tests with the *AAA* principal
+    * Arrange - _your variables_
+    * Act - _perform actions_
+    * Assert - _validate your actions_
 
 
 # Pain Points
-* ANDROID_HOME
-* JAVA_HOME
+* See step 1
+    * ANDROID_HOME
+    * JAVA_HOME
 * ``The running adb server is incompatible with the Android SDK version in use by UITest``
 ```
 Message: System.Exception : The running adb server is incompatible with the Android SDK version in use by UITest: 
     C:\Program Files (x86)\Android\android-sdk
 
 You probably have multiple installations of the Android SDK and should update them or ensure that your IDE, simulator and shell all use the same instance.  The ANDROID_HOME environment variable can effect this.
+```
+
+* Choosing the right emulator
+```
+Message: System.Exception : Configured device serial 'emulator-5554' not found. DeviceSerial does not need to be specified if only 1 device is connected. Devices found: emulator-5556
 ```
 
 # Further Learning
