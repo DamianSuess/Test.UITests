@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.UITests.UWP", "Test.UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.UITests.Android", "Test.UITests\Test.UITests.Android\Test.UITests.Android.csproj", "{E1E0227E-0D5F-4DAC-8588-D78C50BA2E08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.UITests", "Test.UITests\Test.UITests\Test.UITests.csproj", "{ADB462EA-B4B5-4F57-BD98-24220A58DD2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.UITests.Client", "Test.UITests\Test.UITests.Client\Test.UITests.Client.csproj", "{ADB462EA-B4B5-4F57-BD98-24220A58DD2E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{C5573C95-EEAC-40CD-A41F-D70B09A2AEA5}"
 EndProject

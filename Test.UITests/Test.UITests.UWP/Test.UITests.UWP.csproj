@@ -148,9 +148,9 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test.UITests\Test.UITests.csproj">
-      <Project>{4F57BCB6-F593-4034-9AB2-3B1440A0758D}</Project>
-      <Name>Test.UITests</Name>
+    <ProjectReference Include="..\Test.UITests\Test.UITests.Client.csproj">
+      <Project>{ADB462EA-B4B5-4F57-BD98-24220A58DD2E}</Project>
+      <Name>Test.UITests.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

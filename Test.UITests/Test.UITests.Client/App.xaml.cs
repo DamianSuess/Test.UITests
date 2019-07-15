@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Test.UITests
+namespace Test.UITests.Client
 {
   public partial class App : Application
   {

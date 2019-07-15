@@ -1,6 +1,6 @@
-# Xamarin UITest
+# Xamarin UITest Sample
 
-This is a sample project for Xamarin.Forms UITests.
+This is a sample project for Xamarin.Forms UITests and aims to provide a simple setup and configuration guide
 
 ## NuGet Requirements
 * NUnit (v3)
@@ -8,9 +8,9 @@ This is a sample project for Xamarin.Forms UITests.
 * Xamarin.UITest
 
 ## Step 1 - Setup Environment
-1. Set your Environment Variable for ANDROID_HOME
-    * ANDROID_HOME="C:\Program Files (x86)\Android\android-sdk"
-    * JAVA_HOME="C:\Program Files\Android\jdk\microsoft_dist_openjdk_1.8.0.25"
+1. Set your Environment Variables
+    * ANDROID_HOME=``"C:\Program Files (x86)\Android\android-sdk"``
+    * JAVA_HOME=``"C:\Program Files\Android\jdk\microsoft_dist_openjdk_1.8.0.25"``
 2. Create a main Xamarin.Forms project
 3. Create your UTests project
     * Include the required NuGet packages above!
@@ -30,7 +30,7 @@ This is a sample project for Xamarin.Forms UITests.
     * JAVA_HOME
 * ``The running adb server is incompatible with the Android SDK version in use by UITest``
 ```
-Message: System.Exception : The running adb server is incompatible with the Android SDK version in use by UITest: 
+Message: System.Exception : The running adb server is incompatible with the Android SDK version in use by UITest:
     C:\Program Files (x86)\Android\android-sdk
 
 You probably have multiple installations of the Android SDK and should update them or ensure that your IDE, simulator and shell all use the same instance.  The ANDROID_HOME environment variable can effect this.
