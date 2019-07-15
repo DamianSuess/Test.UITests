@@ -1,11 +1,20 @@
-﻿using NUnit.Framework;
+﻿/* Copyright Xeno Innovations, Inc. 2019
+ * Author:  Damian Suess
+ * Date:    2019-7-14
+ * File:    BaseUiTest.cs
+ * Description:
+ *  Base UITest class
+ */
+
+using NUnit.Framework;
+using Test.UITests.UITestBench.Helpers;
 using Xamarin.UITest;
 
 namespace Test.UITests.UITestBench
 {
   [TestFixture(Platform.Android)]
   // [TestFixture(Platform.iOS)]
-  internal abstract class BaseUiTest
+  public abstract class BaseUiTest
   {
     private readonly Platform _platform;
 
@@ -16,7 +25,8 @@ namespace Test.UITests.UITestBench
     [SetUp]
     virtual public void BeforeEachTest()
     {
-      _app = AppInitializer.StartApp(_platform);
+      UIHelpers.AppContext = AppInitializer.StartApp(_platform);
+      _app = UIHelpers.AppContext;
     }
   }
 }

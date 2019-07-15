@@ -5,7 +5,7 @@ namespace Test.UITests.UITestBench
 {
   [TestFixture(Platform.Android)]
   // [TestFixture(Platform.iOS)]
-  class ReplTests : BaseUiTest
+  public class ReplTests : BaseUiTest
   {
     public ReplTests(Platform platform)
       : base(platform)

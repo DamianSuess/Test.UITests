@@ -1,7 +1,15 @@
-﻿using NUnit.Framework;
-using System.IO;
+﻿/* Copyright Xeno Innovations, Inc. 2019
+ * Author:  Damian Suess
+ * Date:    2019-7-12
+ * File:    SampleTests.cs
+ * Description:
+ *  Quick sample test of unit testing AAA principals
+ *
+ *  AAA: Arrange, Act, Assert
+ */
+
 using System.Linq;
-using System.Runtime.CompilerServices;
+using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
 
@@ -9,30 +17,11 @@ namespace Test.UITests.UITestBench
 {
   [TestFixture(Platform.Android)]
   // [TestFixture(Platform.iOS)]
-  public class SimpleTests
+  public class SimpleTests : BaseUiTest
   {
-    private IApp _app;
-    private Platform _platform;
-
     public SimpleTests(Platform platform)
+      : base(platform)
     {
-      this._platform = platform;
-    }
-
-    [SetUp]
-    public void BeforeEachTest()
-    {
-      _app = AppInitializer.StartApp(_platform);
-    }
-
-    [Test]
-    public void ReadEvailPrintLoopTest()
-    {
-      // _app.Repl();
-
-      // https://docs.microsoft.com/en-us/appcenter/test-cloud/uitest/working-with-repl?tabs=vswin
-      // Usage:
-      //  * tree    - Prints layout from the screen 
     }
 
     [Test]
@@ -53,7 +42,6 @@ namespace Test.UITests.UITestBench
       // Act
       // _app.Screenshot("Generic screen shot");
     }
-
 
     [Test]
     public void CanInputUserAndPasswordTest()
@@ -97,18 +85,6 @@ namespace Test.UITests.UITestBench
 
       // Assert
       Assert.IsTrue(results.Any());
-    }
-
-    private void SaveScreenshot(
-      [CallerMemberName]string title = "",
-      [CallerLineNumber]int lineNumber = -1)
-    {
-      FileInfo screenshot = _app.Screenshot(title);
-      if (TestEnvironment.IsTestCloud == false)
-      {
-        File.Move(screenshot.FullName, Path.Combine(screenshot.DirectoryName,
-          $"{title}-{lineNumber}{screenshot.Extension}"));
-      }
     }
   }
 }

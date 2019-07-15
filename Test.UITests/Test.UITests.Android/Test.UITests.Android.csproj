@@ -98,7 +98,7 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Test.UITests\Test.UITests.Client.csproj">
+    <ProjectReference Include="..\Test.UITests.Client\Test.UITests.Client.csproj">
       <Project>{ADB462EA-B4B5-4F57-BD98-24220A58DD2E}</Project>
       <Name>Test.UITests.Client</Name>
     </ProjectReference>
