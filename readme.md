@@ -25,21 +25,53 @@ This is a sample project for Xamarin.Forms UITests and aims to provide a simple 
 
 
 # Pain Points
-* See step 1
-    * ANDROID_HOME
-    * JAVA_HOME
-* ``The running adb server is incompatible with the Android SDK version in use by UITest``
+Did you ever get, ``The running adb server is incompatible with the Android SDK version in use by UITest``?
+
+This message is CRAP because it can mean a number of problems
+
+## Some Solutions
+### Environemnt Variables
+* Make sure your environment variable ``ANDROID_HOME`` is set correctly
+* Make sure your environment variable ``JAVA_HOME`` is set correctly
+
+### ADB Version
+Ensure you have the right ADB version running. Currently Xamarin.UITest v3.0 wants to use ADB v1.0.39. Even better, they don't tell you which one it wants?!
+
+But wait, it's July-2019 and the latest ADB is v1.0.40?!  Yes, i know. You may have to do the following
+
+1. Navigate to %ANDROID_HOME%\
+2. Validate your ADB version in the ``platform-tools`` folder
+    * PowerShell: ``adb version``
+    * Output: ``Android Debug Bridge version 1.0.40``
+3. Find the right version in the obscurely named "platform-tools.old#######" folders
+    * Currently, it wants ``v1.0.39``. Find it
+4. Backup your old ``platform-tools`` folder by renaming it
+5. Rename your ``..old-..`` as your **platform-tools**
+    * I did a copy of the old folder & renamed it
+
+### Generic Error Bullcrap
 ```
 Message: System.Exception : The running adb server is incompatible with the Android SDK version in use by UITest:
     C:\Program Files (x86)\Android\android-sdk
 
 You probably have multiple installations of the Android SDK and should update them or ensure that your IDE, simulator and shell all use the same instance.  The ANDROID_HOME environment variable can effect this.
 ```
-
-* Choosing the right emulator
+### Choosing the right emulator
+If you ever get the following
 ```
 Message: System.Exception : Configured device serial 'emulator-5554' not found. DeviceSerial does not need to be specified if only 1 device is connected. Devices found: emulator-5556
 ```
+
+Try setting the ``.DeviceSerial("emulator-5554")`` in your ``AppInitializer.cs`` file
+```cs
+  return ConfigureApp
+    .Android
+    .InstalledApp("com.companyname.Test.UITests")
+    .EnableLocalScreenshots()
+    .DeviceSerial("emulator-5554") // To run specific device
+    .StartApp(Xamarin.UITest.Configuration.AppDataMode.Clear);
+```
+
 
 # Further Learning
 ## Resources

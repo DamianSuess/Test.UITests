@@ -40,7 +40,8 @@ namespace Test.UITests.UITestBench
     public void CanTakeAndSaveScreenShotTest()
     {
       // Act
-      // _app.Screenshot("Generic screen shot");
+      System.IO.Directory.SetCurrentDirectory(@"C:\Temp");
+      _app.Screenshot("Generic screen shot");
     }
 
     [Test]
