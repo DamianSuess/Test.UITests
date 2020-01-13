@@ -2,6 +2,8 @@
 
 This is a sample project for Xamarin.Forms UITests and aims to provide a simple setup and configuration guide
 
+Author: [Damian Suess](https://www.linkedin.com/in/damiansuess/)
+
 ## NuGet Requirements
 * NUnit (v3)
 * NUnit3TestAdapters
